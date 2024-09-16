@@ -238,12 +238,18 @@ LeagueEntryDTO - represents a league entry
  */
 
 internal data class LeagueEntryDto(
+    @Json(name = "puuid") // TFT only
+    val puuid: String?,
     @Json(name = "leagueId")
     val leagueId: String? = null,
     @Json(name = "summonerId")
     val summonerId: String,
     @Json(name = "queueType")
     val queueType: String,
+    @Json(name = "ratedTier") // TFT only
+    val ratedTier: String?,
+    @Json(name = "ratedRating") // TFT only
+    val ratedRating: Int?,
     @Json(name = "tier")
     val tier: String?,
     @Json(name = "rank")
@@ -264,6 +270,19 @@ internal data class LeagueEntryDto(
     val inactive: Boolean,
     @Json(name = "miniSeries")
     val miniSeries: MiniSeriesDto? = null,
+)
+
+internal data class TopRatedLadderEntryDto(
+    @Json(name = "summonerId")
+    val summonerId: String,
+    @Json(name = "ratedTier")
+    val ratedTier: String,
+    @Json(name = "ratedRating")
+    val ratedRating: Int,
+    @Json(name = "wins")
+    val wins: Int,
+    @Json(name = "previousUpdateLadderPosition")
+    val previousUpdateLadderPosition: Int,
 )
 
 internal data class MetadataDto(

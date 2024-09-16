@@ -7,4 +7,7 @@ public class TftApi(
     apiKey: String,
     platform: Platform,
     globalRegion: GlobalRegion,
-)
+){
+    @JvmField
+    public val league: LeagueApi = LeagueApi(apiKey, platform)
+}
